@@ -1,0 +1,288 @@
+{
+  "code": 400,
+  "msg": "",
+  "items": [
+                {
+                  "isparent": true,
+                  "children": [
+                    {
+                      "isparent": true,
+                      "children": [
+                        {
+                          "isparent": true,
+                          "children": [
+                            {
+                              "isparent": false,
+                              "children": [],
+                              "id": "11e7-614c-38e267c6-b750-c5ed3f8a5e41",
+                  "item_parentID": "11e7-9eb3-f29d5055-befc-cfffeac8f141",
+                  "item_NAME": "101室",
+                  "item_QUALITY": "教室",
+                  "item_NUMBER": "x1101"
+                },
+                {
+                  "isparent": false,
+                  "children": [],
+                  "id": "11e7-63be-f7b10990-a2fd-7f344c82edb0",
+                  "item_parentID": "11e7-9eb3-f29d5055-befc-cfffeac8f141",
+                  "item_NAME": "102室",
+                  "item_QUALITY": "教室",
+                  "item_NUMBER": "x1102"
+                },
+                {
+                  "isparent": false,
+                  "children": [],
+                  "id": "11e7-63bf-05749845-a2fd-7f344c82edb0",
+                  "item_parentID": "11e7-9eb3-f29d5055-befc-cfffeac8f141",
+                  "item_NAME": "103室",
+                  "item_QUALITY": "教室",
+                  "item_NUMBER": "x1103"
+                }
+              ],
+              "id": "11e7-9eb3-f29d5055-befc-cfffeac8f141",
+              "item_parentID": "11e7-9eb3-8a36a13b-befc-cfffeac8f141",
+              "item_NAME": "一层",
+              "item_QUALITY": null,
+              "item_NUMBER": null
+            },
+            {
+              "isparent": true,
+              "children": [
+                {
+                  "isparent": false,
+                  "children": [],
+                  "id": "11e7-6c20-a174f7b9-83c2-352da36d53d4",
+                  "item_parentID": "11e7-9eb3-fc1ad1ac-befc-cfffeac8f141",
+                  "item_NAME": "201室",
+                  "item_QUALITY": "实验室",
+                  "item_NUMBER": "x1201"
+                }
+              ],
+              "id": "11e7-9eb3-fc1ad1ac-befc-cfffeac8f141",
+              "item_parentID": "11e7-9eb3-8a36a13b-befc-cfffeac8f141",
+              "item_NAME": "二层",
+              "item_QUALITY": null,
+              "item_NUMBER": null
+            }
+          ],
+          "id": "11e7-9eb3-8a36a13b-befc-cfffeac8f141",
+          "item_parentID": "11e7-9eb3-7df9d967-befc-cfffeac8f141",
+          "item_NAME": "一号教学楼",
+          "item_QUALITY": null,
+          "item_NUMBER": null
+        }
+      ],
+      "id": "11e7-9eb3-7df9d967-befc-cfffeac8f141",
+      "item_parentID": "",
+      "item_NAME": "新校区",
+      "item_QUALITY": null,
+      "item_NUMBER": null
+    },
+    {
+      "isparent": true,
+      "children": [
+        {
+          "isparent": true,
+          "children": [
+            {
+              "isparent": false,
+              "children": [],
+              "id": "11e7-9f37-d7ad5d3a-befc-cfffeac8f141",
+              "item_parentID": "11e7-9f37-bf684a49-befc-cfffeac8f141",
+              "item_NAME": "102",
+              "item_QUALITY": "教室",
+              "item_NUMBER": "w1102"
+            },
+            {
+              "isparent": false,
+              "children": [],
+              "id": "11e7-a25a-1cb96d97-befc-cfffeac8f141",
+              "item_parentID": "11e7-9f37-bf684a49-befc-cfffeac8f141",
+              "item_NAME": "103",
+              "item_QUALITY": "教室",
+              "item_NUMBER": "w1103"
+            },
+            {
+              "isparent": false,
+              "children": [],
+              "id": "11e7-a32a-5da493a8-ab6d-c79105787190",
+              "item_parentID": "11e7-9f37-bf684a49-befc-cfffeac8f141",
+              "item_NAME": "101",
+              "item_QUALITY": "教室",
+              "item_NUMBER": "w1101"
+            },
+            {
+              "isparent": false,
+              "children": [],
+              "id": "11e7-a422-a0b725ed-ab6d-c79105787190",
+              "item_parentID": "11e7-9f37-bf684a49-befc-cfffeac8f141",
+              "item_NAME": "104",
+              "item_QUALITY": "教室",
+              "item_NUMBER": "w1104"
+            },
+            {
+              "isparent": false,
+              "children": [],
+              "id": "11e7-a584-ba26a452-ab6d-c79105787190",
+              "item_parentID": "11e7-9f37-bf684a49-befc-cfffeac8f141",
+              "item_NAME": "105",
+              "item_QUALITY": "教室",
+              "item_NUMBER": "w1105"
+            }
+          ],
+          "id": "11e7-9f37-bf684a49-befc-cfffeac8f141",
+          "item_parentID": "11e7-9f37-8a4402e2-befc-cfffeac8f141",
+          "item_NAME": "一层",
+          "item_QUALITY": null,
+          "item_NUMBER": null
+        },
+        {
+          "isparent": true,
+          "children": [
+            {
+              "isparent": false,
+              "children": [],
+              "id": "11e7-a4bd-3f0fbe3d-ab6d-c79105787190",
+              "item_parentID": "11e7-a283-3a968de5-befc-cfffeac8f141",
+              "item_NAME": "201",
+              "item_QUALITY": "教室",
+              "item_NUMBER": "w2201"
+            }
+          ],
+          "id": "11e7-a283-3a968de5-befc-cfffeac8f141",
+          "item_parentID": "11e7-9f37-8a4402e2-befc-cfffeac8f141",
+          "item_NAME": "二层",
+          "item_QUALITY": null,
+          "item_NUMBER": null
+        },
+        {
+          "isparent": true,
+          "children": [
+            {
+              "isparent": false,
+              "children": [],
+              "id": "11e7-a329-ac304372-ab6d-c79105787190",
+              "item_parentID": "11e7-a329-6be62157-ab6d-c79105787190",
+              "item_NAME": "301",
+              "item_QUALITY": "教室",
+              "item_NUMBER": "w3301"
+            }
+          ],
+          "id": "11e7-a329-6be62157-ab6d-c79105787190",
+          "item_parentID": "11e7-9f37-8a4402e2-befc-cfffeac8f141",
+          "item_NAME": "三层",
+          "item_QUALITY": null,
+          "item_NUMBER": null
+        },
+        {
+          "isparent": true,
+          "children": [
+            {
+              "isparent": false,
+              "children": [],
+              "id": "11e7-a329-d5748890-ab6d-c79105787190",
+              "item_parentID": "11e7-a329-72bc297d-ab6d-c79105787190",
+              "item_NAME": "401",
+              "item_QUALITY": "教室",
+              "item_NUMBER": "w4401"
+            }
+          ],
+          "id": "11e7-a329-72bc297d-ab6d-c79105787190",
+          "item_parentID": "11e7-9f37-8a4402e2-befc-cfffeac8f141",
+          "item_NAME": "四层",
+          "item_QUALITY": null,
+          "item_NUMBER": null
+        },
+        {
+          "isparent": true,
+          "children": [
+            {
+              "isparent": false,
+              "children": [],
+              "id": "11e7-a329-c50e13e9-ab6d-c79105787190",
+              "item_parentID": "11e7-a329-7a49c1d3-ab6d-c79105787190",
+              "item_NAME": "501",
+              "item_QUALITY": "教室",
+              "item_NUMBER": "w5501"
+            }
+          ],
+          "id": "11e7-a329-7a49c1d3-ab6d-c79105787190",
+          "item_parentID": "11e7-9f37-8a4402e2-befc-cfffeac8f141",
+          "item_NAME": "五层",
+          "item_QUALITY": null,
+          "item_NUMBER": null
+        },
+        {
+          "isparent": true,
+          "children": [
+            {
+              "isparent": false,
+              "children": [],
+              "id": "11e7-a422-93388ee2-ab6d-c79105787190",
+              "item_parentID": "11e7-a329-8177fbdb-ab6d-c79105787190",
+              "item_NAME": "601",
+              "item_QUALITY": "教室",
+              "item_NUMBER": "w6601"
+            }
+          ],
+          "id": "11e7-a329-8177fbdb-ab6d-c79105787190",
+          "item_parentID": "11e7-9f37-8a4402e2-befc-cfffeac8f141",
+          "item_NAME": "六层",
+          "item_QUALITY": null,
+          "item_NUMBER": null
+        }
+      ],
+      "id": "11e7-9f37-8a4402e2-befc-cfffeac8f141",
+      "item_parentID": "",
+      "item_NAME": "维多利亚",
+      "item_QUALITY": null,
+      "item_NUMBER": null
+    },
+    {
+      "isparent": true,
+      "children": [],
+      "id": "11e7-acbc-6d687219-8e6c-d9d97144c510",
+      "item_parentID": "",
+      "item_NAME": "测试地点",
+      "item_QUALITY": null,
+      "item_NUMBER": null
+    },
+    {
+      "isparent": true,
+      "children": [
+        {
+          "isparent": false,
+          "children": [],
+          "id": "11e7-ad95-04654edd-8e6c-d9d97144c510",
+          "item_parentID": "11e7-ad94-e3807144-8e6c-d9d97144c510",
+          "item_NAME": "测试",
+          "item_QUALITY": "教室",
+          "item_NUMBER": "cs101"
+        },
+        {
+          "isparent": false,
+          "children": [],
+          "id": "11e7-ae4f-cf37f689-a70f-f50380d348a8",
+          "item_parentID": "11e7-ad94-e3807144-8e6c-d9d97144c510",
+          "item_NAME": "测试2班",
+          "item_QUALITY": "教室",
+          "item_NUMBER": "CS201"
+        },
+        {
+          "isparent": false,
+          "children": [],
+          "id": "11e7-ae51-12f4b33d-a70f-f50380d348a8",
+          "item_parentID": "11e7-ad94-e3807144-8e6c-d9d97144c510",
+          "item_NAME": "测试3班",
+          "item_QUALITY": "教室",
+          "item_NUMBER": "CS03"
+        }
+      ],
+      "id": "11e7-ad94-e3807144-8e6c-d9d97144c510",
+      "item_parentID": "",
+      "item_NAME": "小学",
+      "item_QUALITY": null,
+      "item_NUMBER": null
+    }
+  ]
+}
