@@ -86,23 +86,17 @@ public class MainActivity extends AppCompatActivity {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMsgEvent(MsgEvent event) {
         switch (event.getMessage()) {
-            case MsgEvent.ON_LOAD_FINISH:
-                Logger.d("收到了加载完毕的通知");
-                playVideo();
-                break;
-
             case MsgEvent.ON_PLAY_COMPLETE:
                 Logger.d("Main Activity 收到了播放完成的通知");
-                if (files.length > 1) {
-                    count++;
-                    if (count <= files.length-1) {
-                        playVideo();
-                    } else {
-                        count = 0;
-                        playVideo();
-                    }
+                count++;
+                if (count < files.length ) {
+                    Logger.d("if count 的数字是: %d", count);
+                    playVideo();
+                } else {
+                    Logger.d("else count 的数字是 %d", count);
+                    count = 0;
+                    playVideo();
                 }
-                break;
         }
     }
 
@@ -234,14 +228,12 @@ public class MainActivity extends AppCompatActivity {
         // 如果本地没有文件, 则删除数据库的内容
 
         new File(BaseApp.VIDEO_DOWNLOAD_PATH).mkdirs();
-
         if (fileInfos.size() == 0) {
             //Logger.d("数据库大小 == " + fileInfos.size());
             DownloadUtils.startDownload(this, path, video_name, 1);
         } else if (fileInfos.size() != 0 && files.length == 0) {
             fileDB.deleteAll();
         }
-
         for (FileInfo fileInfo : fileInfos) {
             Logger.d("fileInfo里的URL %s 和 文件名是: %s  ", fileInfo.getUrl(), fileInfo.getFileName());
             Logger.d("收到的path = %s  文件名是 %s:  ", path, video_name);
