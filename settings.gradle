@@ -1,1 +1,2 @@
-include /*':app',*/'videodownloadtest',"DownLoader"
+include ':testrandomactivity'
+include /*':app',*/ 'videodownloadtest', "DownLoader"

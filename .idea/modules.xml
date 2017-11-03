@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DownLoader/DownLoader.iml" filepath="$PROJECT_DIR$/DownLoader/DownLoader.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestListDemo.iml" filepath="$PROJECT_DIR$/TestListDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testrandomactivity/testrandomactivity.iml" filepath="$PROJECT_DIR$/testrandomactivity/testrandomactivity.iml" />
       <module fileurl="file://$PROJECT_DIR$/videodownloadtest/videodownloadtest.iml" filepath="$PROJECT_DIR$/videodownloadtest/videodownloadtest.iml" />
     </modules>
   </component>

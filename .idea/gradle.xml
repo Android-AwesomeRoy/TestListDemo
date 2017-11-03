@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/DownLoader" />
+            <option value="$PROJECT_DIR$/testrandomactivity" />
             <option value="$PROJECT_DIR$/videodownloadtest" />
           </set>
         </option>

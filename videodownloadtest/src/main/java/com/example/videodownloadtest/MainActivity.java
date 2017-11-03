@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,10 +46,12 @@ public class MainActivity extends AppCompatActivity {
     File[] files; // 文件夹内的文件数组
     File videoDir = new File(BaseApp.VIDEO_DOWNLOAD_PATH); // 下载路径
 
+    public String videoUrl = "http://192.168.3.13:8080/obpm/VideoServletDemo?id=11e7-614c-38e267c6-b750-c5ed3f8a5e41&date=2017-08-30";
+
     public static String[] videoUrlList = {"http://jzvd.nathen.cn/c494b340ff704015bb6682ffde3cd302/64929c369124497593205a4190d7d128-5287d2089db37e62345123a1be272f8b.mp4", "http://jzvd.nathen.cn/63f3f73712544394be981d9e4f56b612/69c5767bb9e54156b5b60a1b6edeb3b5-5287d2089db37e62345123a1be272f8b.mp4", "http://jzvd.nathen.cn/b201be3093814908bf987320361c5a73/2f6d913ea25941ffa78cc53a59025383-5287d2089db37e62345123a1be272f8b.mp4"};
 
     private BaseVideoPlayer mPlayer;
-    public static int count = 0;
+    public int count = 0;
 
     private Handler mHnadler = new Handler() {
         @Override
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         mTv = (TextView) findViewById(R.id.tv_show_net);
         new NetWorkSpeedUtils(this, mHnadler).startShowNetSpeed();
 
-        new VideoAsyncTask().execute(videoUrlList);
+        new VideoAsyncTask().execute(videoUrl);
         if (videoDir.exists() && files.length != 0) {
             for (File file : files) {
                 Logger.d("file中的文件是: " + file);
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             case MsgEvent.ON_PLAY_COMPLETE:
                 Logger.d("Main Activity 收到了播放完成的通知");
                 count++;
-                if (count < files.length ) {
+                if (count < files.length) {
                     Logger.d("if count 的数字是: %d", count);
                     playVideo();
                 } else {
@@ -189,12 +192,11 @@ public class MainActivity extends AppCompatActivity {
     List<VideoBean> getJsonData(String url) {
         List<VideoBean> videoBeenList = new ArrayList<>();
         try {
-            mJson = url;
+            mJson = readStream(new URL(url).openStream());
             Gson gson = new Gson();
             VideoBean videoBean = gson.fromJson(mJson, VideoBean.class);
             List<VideoBean.ItemsBean> items = videoBean.getItems();
             for (VideoBean.ItemsBean item : items) {
-                String description = item.getDescription();
                 List<VideoBean.ItemsBean.VideoDescribeBean> video_describe = item.getVideo_describe();
                 for (VideoBean.ItemsBean.VideoDescribeBean videoDescribeBean : video_describe) {
                     downloadVideo(videoDescribeBean.getPath(), videoDescribeBean.getVideo_name());
@@ -202,11 +204,6 @@ public class MainActivity extends AppCompatActivity {
                     //mPath.add(videoDescribeBean.getPath());
                 }
             }
-
-            //for (String s : mPath) {
-            //    Logger.d(s);
-            //}
-            // mQueueSet.downloadTogether(tasks);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -273,13 +270,7 @@ public class MainActivity extends AppCompatActivity {
     private class VideoAsyncTask extends AsyncTask<String, Void, List<VideoBean>> {
         @Override
         protected List<VideoBean> doInBackground(String... strings) {
-            for (int i = 0; i < videoUrlList.length; i++) {
-
-                downloadVideo(videoUrlList[i], "test" + i + ".mp4");
-
-            }
-            //return getJsonData(strings[0]);
-            return null;
+            return getJsonData(strings[0]);
         }
     }
 }
