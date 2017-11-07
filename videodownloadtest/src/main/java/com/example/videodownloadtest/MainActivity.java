@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        registerReceiver();
         mPlayer = (BaseVideoPlayer) findViewById(R.id.video_player);
         files = getFiles(BaseApp.VIDEO_DOWNLOAD_PATH);
 
@@ -78,12 +78,14 @@ public class MainActivity extends AppCompatActivity {
         new NetWorkSpeedUtils(this, mHnadler).startShowNetSpeed();
 
         new VideoAsyncTask().execute(videoUrl);
+
         if (videoDir.exists() && files.length != 0) {
             for (File file : files) {
                 Logger.d("file中的文件是: " + file);
             }
             playVideo();
         }
+
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -91,8 +93,7 @@ public class MainActivity extends AppCompatActivity {
         switch (event.getMessage()) {
             case MsgEvent.ON_PLAY_COMPLETE:
                 Logger.d("Main Activity 收到了播放完成的通知");
-                count++;
-                if (count < files.length) {
+                if (count <= files.length - 1) {
                     Logger.d("if count 的数字是: %d", count);
                     playVideo();
                 } else {
@@ -106,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        registerReceiver();
         EventBus.getDefault().register(this);
     }
 
@@ -130,8 +130,8 @@ public class MainActivity extends AppCompatActivity {
             mPlayer.setUp(files[count].toString(), JZVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,
                           files[count].getName());
             mPlayer.startButton.performClick();
-
-            Logger.d("收到的本地文件路径是 %s ", files[count].toString());
+            Logger.d("开始播放的本地文件路径是 %s ", files[count].toString());
+            count++;
 
         } catch (Exception e) {
             Toast.makeText(this, "请等待视频下载完成", Toast.LENGTH_SHORT).show();
@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
             switch (intent.getAction()) {
                 case IntentAction.ACTION_START:
                     Logger.d("START DOWNLOAD");
+                    Toast.makeText(MainActivity.this, "开始下载", Toast.LENGTH_LONG).show();
                     break;
                 case IntentAction.ACTION_FINISH:
                     Logger.d(" DOWNLOAD FINISHED");
@@ -203,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
                     //Logger.d(videoDescribeBean.getVideo_name());
                     //mPath.add(videoDescribeBean.getPath());
                 }
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -232,9 +234,9 @@ public class MainActivity extends AppCompatActivity {
             fileDB.deleteAll();
         }
         for (FileInfo fileInfo : fileInfos) {
-            Logger.d("fileInfo里的URL %s 和 文件名是: %s  ", fileInfo.getUrl(), fileInfo.getFileName());
-            Logger.d("收到的path = %s  文件名是 %s:  ", path, video_name);
-            Logger.d("是否匹配? : " + fileInfo.getUrl().contains(path));
+           //Logger.d("fileInfo里的URL %s 和 文件名是: %s  ", fileInfo.getUrl(), fileInfo.getFileName());
+           //Logger.d("收到的path = %s  文件名是 %s:  ", path, video_name);
+           //Logger.d("是否匹配? : " + fileInfo.getUrl().contains(path));
             if (files == null || !videoDir.exists()) {
                 Logger.d("file == %b 或者是 dir == %b", files == null, !videoDir.exists());
                 DownloadUtils.ReDownLoad(this, path, 1);

@@ -13,7 +13,7 @@ import com.wenld.downloadutils.DownloadUtils;
  */
 
 public class BaseApp extends Application {
-    public static String VIDEO_DOWNLOAD_PATH = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/video";
+    public static String VIDEO_DOWNLOAD_PATH = Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS + "/video1";
     @Override
     public void onCreate() {
         super.onCreate();
