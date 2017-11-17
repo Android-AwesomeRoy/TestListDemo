@@ -1,2 +1,1 @@
-include ':testrandomactivity'
-include /*':app',*/ 'videodownloadtest', "DownLoader"
+include  ':cardreader','threadExample'/*, ':kcb','videodownloadtest', "DownLoader",, ':get_android_id', ':testrandomactivity',*/

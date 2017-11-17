@@ -17,7 +17,6 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +32,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Log.d("finish", "已调用runnable");
+                // 需要判断当前的activity是哪一个
                 finish();
             }
         };

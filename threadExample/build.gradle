@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.3'
+
+    defaultConfig {
+        applicationId "io.realm.examples.threads"
+        targetSdkVersion 26
+        minSdkVersion 15
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.debug
+        }
+        debug {
+            minifyEnabled true
+        }
+    }
+}
+
+dependencies {
+    //noinspection GradleDependency
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+}

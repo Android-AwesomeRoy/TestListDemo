@@ -1,8 +1,6 @@
 package com.example.videodownloadtest;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.liulishuo.filedownloader.FileDownloader;
 import com.orhanobut.logger.Logger;
 import com.wenld.downloadutils.DownloadUtils;
 import com.wenld.downloadutils.bean.FileInfo;
@@ -46,14 +45,15 @@ public class MainActivity extends AppCompatActivity {
     File[] files; // 文件夹内的文件数组
     File videoDir = new File(BaseApp.VIDEO_DOWNLOAD_PATH); // 下载路径
 
-    public String videoUrl = "http://192.168.3.13:8080/obpm/VideoServletDemo?id=11e7-614c-38e267c6-b750-c5ed3f8a5e41&date=2017-08-30";
+    public String videoUrl = "http://59.110.237.176:8081/obpm/VideoServletDemo?id=11e7-34a9-c52d0a46-8374-5f96fafba6a9&date=2017-11-16";
 
     public static String[] videoUrlList = {"http://jzvd.nathen.cn/c494b340ff704015bb6682ffde3cd302/64929c369124497593205a4190d7d128-5287d2089db37e62345123a1be272f8b.mp4", "http://jzvd.nathen.cn/63f3f73712544394be981d9e4f56b612/69c5767bb9e54156b5b60a1b6edeb3b5-5287d2089db37e62345123a1be272f8b.mp4", "http://jzvd.nathen.cn/b201be3093814908bf987320361c5a73/2f6d913ea25941ffa78cc53a59025383-5287d2089db37e62345123a1be272f8b.mp4"};
 
     private BaseVideoPlayer mPlayer;
     public int count = 0;
 
-    private Handler mHnadler = new Handler() {
+    @SuppressLint("HandlerLeak")
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -70,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         registerReceiver();
-        mPlayer = (BaseVideoPlayer) findViewById(R.id.video_player);
+        mPlayer = findViewById(R.id.video_player);
         files = getFiles(BaseApp.VIDEO_DOWNLOAD_PATH);
 
 
-        mTv = (TextView) findViewById(R.id.tv_show_net);
-        new NetWorkSpeedUtils(this, mHnadler).startShowNetSpeed();
+        mTv = findViewById(R.id.tv_show_net);
+        new NetWorkSpeedUtils(this, mHandler).startShowNetSpeed();
 
         new VideoAsyncTask().execute(videoUrl);
 
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         filter.addAction(IntentAction.ACTION_PAUSE);    //暂停
         filter.addAction(IntentAction.ACTION_FAILED);    //下载失败
         filter.addAction(IntentAction.ACTION_WAIT_DownLoad);    //进入下载队列等待下载
-        registerReceiver(mReceiver, filter);
+        //registerReceiver(mReceiver, filter);
         Logger.d("已注册receiver");
 
         //mPlayer.onStateAutoComplete();
@@ -149,10 +149,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         JZVideoPlayer.releaseAllVideos();
-        unregisterReceiver(mReceiver);
+        //unregisterReceiver(mReceiver);
         Logger.d("反注册receiver");
         EventBus.getDefault().unregister(this);
     }
+/*
 
     BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -182,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+*/
 
     @Override
     protected void onResume() {
@@ -200,7 +202,8 @@ public class MainActivity extends AppCompatActivity {
             for (VideoBean.ItemsBean item : items) {
                 List<VideoBean.ItemsBean.VideoDescribeBean> video_describe = item.getVideo_describe();
                 for (VideoBean.ItemsBean.VideoDescribeBean videoDescribeBean : video_describe) {
-                    downloadVideo(videoDescribeBean.getPath(), videoDescribeBean.getVideo_name());
+                    //downloadVideo(videoDescribeBean.getPath(), videoDescribeBean.getVideo_name());
+                    FileDownloader.getImpl().create(videoDescribeBean.getPath());
                     //Logger.d(videoDescribeBean.getVideo_name());
                     //mPath.add(videoDescribeBean.getPath());
                 }

@@ -28,12 +28,14 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'cn.jzvd:jiaozivideoplayer:6.0.0'
-    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.orhanobut:logger:2.1.1'
     compile 'com.google.code.gson:gson:2.8.2'
     compile project(':DownLoader')
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.liulishuo.filedownloader:library:1.6.8'
+
 
 }

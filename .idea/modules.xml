@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DownLoader/DownLoader.iml" filepath="$PROJECT_DIR$/DownLoader/DownLoader.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestListDemo.iml" filepath="$PROJECT_DIR$/TestListDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testrandomactivity/testrandomactivity.iml" filepath="$PROJECT_DIR$/testrandomactivity/testrandomactivity.iml" />
-      <module fileurl="file://$PROJECT_DIR$/videodownloadtest/videodownloadtest.iml" filepath="$PROJECT_DIR$/videodownloadtest/videodownloadtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cardreader/cardreader.iml" filepath="$PROJECT_DIR$/cardreader/cardreader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/threadExample/threadExample.iml" filepath="$PROJECT_DIR$/threadExample/threadExample.iml" />
     </modules>
   </component>
 </project>
