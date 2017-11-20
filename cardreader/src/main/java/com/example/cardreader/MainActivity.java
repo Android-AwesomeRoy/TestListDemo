@@ -14,13 +14,14 @@ import com.syc.usbrfidreader.ICReaderApi;
 public class MainActivity extends AppCompatActivity {
     ICReaderApi mApi;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Logger.addLogAdapter(new AndroidLogAdapter());
 
         UsbDevice device = getIntent().getParcelableExtra(UsbManager.EXTRA_DEVICE);
-        UsbManager manager = (UsbManager) this.getSystemService(this.USB_SERVICE);
+        UsbManager manager = (UsbManager) this.getSystemService(USB_SERVICE);
         setContentView(R.layout.activity_main);
         findViewById(R.id.btn_get).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             Logger.d("onCreate: device == null");
         }
         mApi = new ICReaderApi(device, manager);
-
+getResources();
     }
 
 
@@ -40,26 +41,33 @@ public class MainActivity extends AppCompatActivity {
         String text = "";
         byte mode = 0;
         byte blk_add = 16;
-        byte num_blk = 1;
-        byte[] snr = getByteArray("FF FF FF FF FF FF"); // key
-        byte[] buffer = new byte[16 * num_blk]; // data read
+        byte mNum_blk = 1;
+        byte[] snr = getByteArray("FF FF FF FF FF FF");
+        byte[] buffer = new byte[16 * mNum_blk];
 
-        int result = mApi.API_PCDRead(mode, blk_add, num_blk, snr, buffer);
+        int result = mApi.API_PCDRead(mode, blk_add, mNum_blk, snr, buffer);
 
         text = showStatue(text, result);
         if (result == 0) {
-            text = showData(text, snr, "卡号:\n", 0, 4);
-            text = showData(text, buffer, "卡数据:\n", 0, 16 * num_blk);
-        } else text = showStatue(text, snr[0]);
-        showDialog(text);
+            text = showCardNum(text, snr);
+            Logger.d("if statement run");
+            //text = showCardNum(text, buffer, "卡数据:\n", 0, 16 * mNum_blk);
+            showDialog(text);
+        } else {
+            Logger.d("else statement run, text == %s", text);
+            // text = showStatue(text, snr[0]);
+        }
     }
 
-    private String showData(String text, byte[] data, String str, int pos, int len) {
+    private String showCardNum(String text, byte[] data) {
         StringBuilder dStr = new StringBuilder();
-        for (int i = 0; i < len; i++) {
-            dStr.append(String.format("%02x ", data[i + pos]));
+        for (int i = 0; i < 4; i++) {
+            dStr.append(String.format("%02x ", data[i]));
+            Logger.d("dStr == %s",dStr);
+
         }
-        text += (str + dStr.toString().toUpperCase() + '\n');
+        //Logger.d("dStr == %s",dStr);
+        text += ("卡号:\n" + dStr.toString().toUpperCase() + '\n');
         return text;
     }
 
