@@ -9,7 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/cardreader" />
-            <option value="$PROJECT_DIR$/threadExample" />
+            <option value="$PROJECT_DIR$/killandretart" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

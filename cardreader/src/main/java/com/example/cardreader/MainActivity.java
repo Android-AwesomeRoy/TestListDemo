@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -26,18 +27,26 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_get).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                readCard();
+                String s = readCard();
+                Logger.d("runnable card number == %s", s);
             }
         });
         if (device == null) {
             Logger.d("onCreate: device == null");
         }
         mApi = new ICReaderApi(device, manager);
-getResources();
+        getResources();
     }
 
 
-    void readCard() {
+    String readCard() {
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                readCard();
+            }
+        };
         String text = "";
         byte mode = 0;
         byte blk_add = 16;
@@ -50,33 +59,48 @@ getResources();
         text = showStatue(text, result);
         if (result == 0) {
             text = showCardNum(text, snr);
-            Logger.d("if statement run");
-            //text = showCardNum(text, buffer, "卡数据:\n", 0, 16 * mNum_blk);
+            //Logger.d("if statement run");
             showDialog(text);
+            handler.removeCallbacks(runnable);
+            handler.postDelayed(runnable, 1500);
+            return text;
         } else {
             Logger.d("else statement run, text == %s", text);
             // text = showStatue(text, snr[0]);
+            handler.postDelayed(runnable, 500);
+            //readCard();
         }
+        return null;
     }
 
     private String showCardNum(String text, byte[] data) {
         StringBuilder dStr = new StringBuilder();
         for (int i = 0; i < 4; i++) {
             dStr.append(String.format("%02x ", data[i]));
-            Logger.d("dStr == %s",dStr);
+            Logger.d("dStr == %s", dStr);
 
         }
-        //Logger.d("dStr == %s",dStr);
+        //Logger.d("dStr == 2%s",dStr);
         text += ("卡号:\n" + dStr.toString().toUpperCase() + '\n');
         return text;
     }
 
     void showDialog(String text) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(text);
         builder.setTitle("结果");
+        builder.setMessage(text);
         builder.setPositiveButton("确认", null);
-        builder.create().show();
+        final AlertDialog dialog = builder.create();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+            }
+        }, 1000);
+        dialog.show();
+
     }
 
     private byte[] getByteArray(String str) {
