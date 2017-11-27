@@ -8,8 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/cardreader" />
-            <option value="$PROJECT_DIR$/killandretart" />
+            <option value="$PROJECT_DIR$/multiitem" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

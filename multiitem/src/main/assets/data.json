@@ -1,0 +1,36 @@
+{
+    "code": 200,
+    "msg": "访问成功",
+    "items": [
+        {
+            "type": 0,
+            "title": "优秀班集体",
+            "image_path": "http://192.168.3.13:8080/obpm/uploads/class/honor/11e7-92ec-25180e8b-84f2-b3d12b0761b0.jpg"
+        },
+        {
+            "type": 1,
+            "title": "英语竞赛一等奖",
+            "image_path": "http://192.168.3.13:8080/obpm/uploads/class/honor/11e7-9796-43c2d50a-9a21-e5cae39b9386.jpg"
+        },
+        {
+            "type": 1,
+            "title": "精神文明奖",
+            "image_path": "http://192.168.3.13:8080/obpm/uploads/class/honor/11e7-99e2-fdbe5fd8-8248-e5be1ab60ef5.jpg"
+        },
+        {
+            "type": 0,
+            "title": "运动会一等奖",
+            "image_path": "http://192.168.3.13:8080/obpm/uploads/class/honor/11e7-99e3-1589d5c0-8248-e5be1ab60ef5.jpg"
+        },
+        {
+            "type": 0,
+            "title": "班级荣誉",
+            "image_path": "http://192.168.3.13:8080/obpm/uploads/class/honor/11e7-a584-bfd4f4b7-ab6d-c79105787190.jpg"
+        },
+        {
+            "type": 1,
+            "title": "荣获数学竞赛二等奖",
+            "image_path": "http://192.168.3.13:8080/obpm/uploads/class/honor/11e7-a590-dc2168dd-ab6d-c79105787190.jpg"
+        }
+    ]
+}

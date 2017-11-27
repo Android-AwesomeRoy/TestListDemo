@@ -1,50 +1,24 @@
 package com.example.cardreader;
 
 import android.app.AlertDialog;
-import android.hardware.usb.UsbDevice;
-import android.hardware.usb.UsbManager;
-import android.os.Bundle;
+import android.content.Context;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
-import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 import com.syc.usbrfidreader.ICReaderApi;
 
-public class MainActivity extends AppCompatActivity {
-    ICReaderApi mApi;
+/**
+ * Created by Roy12 on 2017/11/23.
+ */
 
+public class CardReaderHelper {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Logger.addLogAdapter(new AndroidLogAdapter());
-
-        UsbDevice device = getIntent().getParcelableExtra(UsbManager.EXTRA_DEVICE);
-        UsbManager manager = (UsbManager) this.getSystemService(USB_SERVICE);
-        setContentView(R.layout.activity_main);
-        findViewById(R.id.btn_get).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String s = readCard();
-                Logger.d("runnable card number == %s", s);
-            }
-        });
-        if (device == null) {
-            Logger.d("onCreate: device == null");
-        }
-        mApi = new ICReaderApi(device, manager);
-        getResources();
-    }
-
-
-    String readCard() {
+    public String readCard(final ICReaderApi api, final Context context) {
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                readCard();
+                readCard(api,context);
             }
         };
         String text = "";
@@ -54,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
         byte[] snr = getByteArray("FF FF FF FF FF FF");
         byte[] buffer = new byte[16 * mNum_blk];
 
-        int result = mApi.API_PCDRead(mode, blk_add, mNum_blk, snr, buffer);
+        int result = api.API_PCDRead(mode, blk_add, mNum_blk, snr, buffer);
 
         text = showStatue(text, result);
         if (result == 0) {
             text = showCardNum(text, snr);
             //Logger.d("if statement run");
-            showDialog(text);
+            showDialog(text,context);
             handler.removeCallbacks(runnable);
             handler.postDelayed(runnable, 1500);
             return text;
@@ -85,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
         return text;
     }
 
-    void showDialog(String text) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    void showDialog(String text,Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("结果");
         builder.setMessage(text);
         builder.setPositiveButton("确认", null);
@@ -201,6 +175,5 @@ public class MainActivity extends AppCompatActivity {
         text += msg;
         return text;
     }
-
 
 }

@@ -6,7 +6,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.example.killandretart"
+        applicationId "com.example.multiitem"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
@@ -23,10 +23,6 @@ android {
         }
     }
 
-    compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
-    }
 }
 
 dependencies {
@@ -36,5 +32,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation project(':cardreader')
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+    implementation 'com.orhanobut:logger:2.1.1'
+
 }
