@@ -9,7 +9,7 @@ import java.util.List;
 public class Bean {
     private int code;
     private String msg;
-    private List<ItemsBean> items;
+    private List<Bean.ItemsBean> items;
 
     public int getCode() {
         return code;
@@ -27,7 +27,7 @@ public class Bean {
         this.msg = msg;
     }
 
-    public List<ItemsBean> getItems() {
+    public List<Bean.ItemsBean> getItems() {
         return items;
     }
 

@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private String mJson;
     private List<Bean> mData;
     private GridView mGv;
+    private List<Bean.ItemsBean> mItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
         initView();
         initData();
 
-        mGv.setAdapter(new GvAdapter(mData, this));
+        for (Bean datum : mData) {
+            mItems = datum.getItems();
+        }
+        mGv.setAdapter(new GvAdapter(mItems, this));
     }
 
 
@@ -49,13 +53,6 @@ public class MainActivity extends AppCompatActivity {
         mData = new ArrayList<>();
         Bean bean = new Gson().fromJson(mJson, Bean.class);
         mData.add(bean);
-        for (Bean datum : mData) {
-            List<Bean.ItemsBean> items = datum.getItems();
-            for (Bean.ItemsBean item : items) {
-                Logger.d("title == " + item.getTitle() + "   " + "type == " + item.getType());
-
-            }
-        }
     }
 
     private void initView() {
@@ -81,36 +78,36 @@ public class MainActivity extends AppCompatActivity {
 
     private class GvAdapter extends BaseAdapter {
 
-        private List<Bean> data;
+        private List<Bean.ItemsBean> data;
         Context mContext;
 
-        public GvAdapter(List<Bean> data, Context context) {
+
+        public GvAdapter(List<Bean.ItemsBean> data, Context context) {
             this.data = data;
             mContext = context;
         }
 
         @Override
         public int getCount() {
-            return data == null ? 0 : data.size();
+            int size = 0;
+            return data.size();
         }
 
         @Override
-        public Object getItem(int position) {
-            return data == null ? 0 : data.get(position);
+        public Bean.ItemsBean getItem(int position) {
+            return data == null ? null : data.get(position);
+            //return null;
         }
 
         @Override
         public int getItemViewType(int position) {
-            List<Bean.ItemsBean> items = data.get(position).getItems();
-            for (Bean.ItemsBean item : items) {
-                return item.getType();
-            }
-            return super.getItemViewType(position);
+            Logger.d("type === "+data.get(position).getType());
+            return data.get(position).getType();
         }
 
         @Override
         public int getViewTypeCount() {
-            return 3;
+            return 2;
         }
 
         @Override
@@ -121,27 +118,23 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
-            Bean bean = data.get(position);
+            Bean.ItemsBean item = getItem(position);
             int type = getItemViewType(position);
             switch (type) {
                 case 0:
-                    View view1 = inflater.inflate(R.layout.gv_item_rect, parent);
+                    View view1 = inflater.inflate(R.layout.gv_item_rect, parent, false);
                     ImageView ivRect = view1.findViewById(R.id.item_iv_rect);
                     TextView tvRect = view1.findViewById(R.id.item_tv_rect);
-                    tvRect.setText(bean.getItems().get(position).getTitle());
-                    Glide.with(mContext)
-                         .load(bean.getItems().get(position).getImage_path())
-                         .into(ivRect);
+                    tvRect.setText(item.getType() + "  "+item.getTitle());
+                    Glide.with(mContext).load(item.getImage_path()).into(ivRect);
                     return view1;
 
                 case 1:
-                    View view2 = inflater.inflate(R.layout.gv_item_square, parent);
-                    ImageView ivSquare = view2.findViewById(R.id.item_iv_rect);
-                    TextView tvSquare = view2.findViewById(R.id.item_tv_rect);
-                    tvSquare.setText(bean.getItems().get(position).getTitle());
-                    Glide.with(mContext)
-                         .load(bean.getItems().get(position).getImage_path())
-                         .into(ivSquare);
+                    View view2 = inflater.inflate(R.layout.gv_item_square, parent, false);
+                    ImageView ivSquare = view2.findViewById(R.id.item_iv_square);
+                    TextView tvSquare = view2.findViewById(R.id.item_tv_square);
+                    tvSquare.setText(item.getType() + "  "+item.getTitle());
+                    Glide.with(mContext).load(item.getImage_path()).into(ivSquare);
                     return view2;
             }
             return null;
