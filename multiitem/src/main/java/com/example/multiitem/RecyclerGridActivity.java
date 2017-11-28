@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,9 @@ public class RecyclerGridActivity extends AppCompatActivity {
 //                new GridLayoutManager(this, 4, LinearLayoutManager.VERTICAL, false)
                 new FlowLayoutManager(this, false)
         );
-
+        int dimen = getResources().getDimensionPixelSize(R.dimen.space);
+        Logger.d("dimen  ==  "+dimen);
+        mRecyclerView.addItemDecoration(new SpaceDecoration(dimen),0);
         mAdapter = new RecyclerGridAdapter(this, mItems);
     }
 

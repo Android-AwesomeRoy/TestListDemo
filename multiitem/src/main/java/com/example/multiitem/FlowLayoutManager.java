@@ -7,6 +7,8 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 
+import com.orhanobut.logger.Logger;
+
 /**
  * Created by Roy12 on 2017/11/28.
  */
@@ -98,7 +100,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
         final int heightMode = View.MeasureSpec.getMode(heightSpec);
         final int widthSize = View.MeasureSpec.getSize(widthSpec);
         final int heightSize = View.MeasureSpec.getSize(heightSpec);
-
+        Logger.d("widthMode == %d , heightMode == %d , widthSize == %d , heightSize == %d",widthMode,heightMode, widthSize,heightSize);
         int height;
 
         switch (widthMode) {
@@ -170,7 +172,7 @@ public class FlowLayoutManager extends RecyclerView.LayoutManager {
                 break;
         }
 
-        totalHeight = height - getPaddingTop() - getPaddingBottom();
+        totalHeight = height;
 
         setMeasuredDimension(widthSize, height);
     }
