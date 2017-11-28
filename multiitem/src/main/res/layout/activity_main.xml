@@ -10,10 +10,12 @@
     <GridView
         android:background="@color/colorAccent"
         android:id="@+id/gv_root"
-        android:layout_width="800dp"
+        android:layout_width="900dp"
         android:layout_height="400dp"
         android:numColumns="auto_fit"
         android:gravity="center"
+        android:horizontalSpacing="15dp"
+        android:verticalSpacing="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"

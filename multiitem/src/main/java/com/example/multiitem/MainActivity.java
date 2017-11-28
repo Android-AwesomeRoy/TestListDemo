@@ -26,9 +26,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private GridView mGv;
     private String mJson;
     private List<Bean> mData;
-    private GridView mGv;
     private List<Bean.ItemsBean> mItems;
 
     @Override
