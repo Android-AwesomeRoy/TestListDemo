@@ -6,11 +6,12 @@ import android.view.View;
 
 /**
  * Created by Roy12 on 2017/11/28.
+ * 用于生成 item 之间的间隔
  */
 
 public class SpaceDecoration extends RecyclerView.ItemDecoration {
 
-    int space;
+    private int space;
 
     public SpaceDecoration(int space) {
         this.space = space;
@@ -19,10 +20,9 @@ public class SpaceDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
                                RecyclerView.State state) {
-        //if (parent.getChildLayoutPosition(view) == 0) {
-            outRect.right = space;
-            outRect.bottom = space;
-        //}
+        // 间隔只需要计算 item 相对左上的距离
+        outRect.top = space;
+        outRect.left = space;
     }
 }
 

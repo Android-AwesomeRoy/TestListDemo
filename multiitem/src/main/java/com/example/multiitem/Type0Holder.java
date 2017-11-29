@@ -14,9 +14,9 @@ import com.bumptech.glide.Glide;
 
 public class Type0Holder extends RecyclerView.ViewHolder {
 
-    public ImageView mImageView;
-    public TextView mTextView;
-    public Context mContext;
+    private ImageView mImageView;
+    private TextView mTextView;
+    private Context mContext; // 给 Glide 调用
     public Type0Holder(Context context,View itemView) {
         super(itemView);
         mContext = context;

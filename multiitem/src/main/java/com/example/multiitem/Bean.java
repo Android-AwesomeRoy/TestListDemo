@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Created by Roy12 on 2017/11/27.
+ * 模拟用数据模型, 对应 assets 目录下的 json 文件.
  */
 
 public class Bean {

@@ -8,9 +8,10 @@
     tools:context="com.example.multiitem.RecyclerGridActivity">
 
     <android.support.v7.widget.RecyclerView
+        android:background="@color/colorPrimary"
         android:id="@+id/recyclerView"
         android:layout_width="800dp"
-        android:layout_height="380dp"
+        android:layout_height="450dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
