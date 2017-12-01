@@ -17,14 +17,18 @@ public class Type0Holder extends RecyclerView.ViewHolder {
     private ImageView mImageView;
     private TextView mTextView;
     private Context mContext; // 给 Glide 调用
-    public Type0Holder(Context context,View itemView) {
+
+    public Type0Holder(Context context, View itemView) {
         super(itemView);
         mContext = context;
         mImageView = itemView.findViewById(R.id.item_iv_rect);
         mTextView = itemView.findViewById(R.id.item_tv_rect);
     }
-    public void bindHolder(Bean.ItemsBean items) {
+
+    public void bindHolder(DynamicBean.ItemsBean items) {
         Glide.with(mContext).load(items.getImage_path()).into(mImageView);
-        mTextView.setText(items.getType() + "  " + items.getTitle());
+        mTextView.setText(items.getColumn_type() + "  " + items.getColumn_name());
     }
+
+
 }

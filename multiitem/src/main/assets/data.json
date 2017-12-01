@@ -3,54 +3,44 @@
   "msg": "访问成功",
   "items": [
     {
-      "type": 0,
-      "title": "优秀班集体",
-      "image_path": "http://59.110.237.176:8081/obpm/uploads/class/honor/11e7-92ec-25180e8b-84f2-b3d12b0761b0.jpg"
+      "column_number": 1,
+      "class_id": "11e7-9f38-0b377c52-befc-cfffeac8f141",
+      "column_name": "校园新闻",
+      "column_id": "11e7-565a-e886c101-a262-815191aa084a",
+      "image_name": "_ONW_LK_P6RN]5VSH`1WA19.jpg",
+      "image_path": "http://192.168.3.13:8081/obpm/uploads/task/2017/e25410d2-9cc0-41bd-b2fe-753ec09735ec.jpg",
+      "column_type": 2,
+      "url": "http://192.168.3.13:8080/obpm/ClassOtherColumnDisplay?id=11e7-9f38-0b377c52-befc-cfffeac8f141&&columnid=11e7-565a-e886c101-a262-815191aa084a"
     },
     {
-      "type": 0,
-      "title": "英语竞赛一等奖",
-      "image_path": "http://59.110.237.176:8081/obpm/uploads/class/honor/11e7-9796-43c2d50a-9a21-e5cae39b9386.jpg"
+      "column_number": 3,
+      "class_id": "11e7-9f38-0b377c52-befc-cfffeac8f141",
+      "column_name": "锐捷产品",
+      "column_id": "11e7-b24d-673a01ed-b550-e35bb93ed9eb",
+      "image_name": null,
+      "image_path": null,
+      "column_type": 1,
+      "url": "http://192.168.3.13:8080/obpm/ClassOtherColumnDisplay?id=11e7-9f38-0b377c52-befc-cfffeac8f141&&columnid=11e7-b24d-673a01ed-b550-e35bb93ed9eb"
     },
     {
-      "type": 1,
-      "title": "精神文明奖",
-      "image_path": "http://59.110.237.176:8081/obpm/uploads/class/honor/11e7-99e2-fdbe5fd8-8248-e5be1ab60ef5.jpg"
+      "column_number": 11,
+      "class_id": "11e7-9f38-0b377c52-befc-cfffeac8f141",
+      "column_name": "学校荣誉",
+      "column_id": "11e7-565b-230ee2a0-a262-815191aa084a",
+      "image_name": null,
+      "image_path": null,
+      "column_type": 2,
+      "url": "http://192.168.3.13:8080/obpm/ClassOtherColumnDisplay?id=11e7-9f38-0b377c52-befc-cfffeac8f141&&columnid=11e7-565b-230ee2a0-a262-815191aa084a"
     },
     {
-      "type": 1,
-      "title": "运动会一等奖",
-      "image_path": "http://59.110.237.176:8081/obpm/uploads/class/honor/11e7-99e3-1589d5c0-8248-e5be1ab60ef5.jpg"
-    },
-    {
-      "type": 1,
-      "title": "班级荣誉",
-      "image_path": "http://59.110.237.176:8081/obpm/uploads/class/honor/11e7-a584-bfd4f4b7-ab6d-c79105787190.jpg"
-    },
-    {
-      "type": 1,
-      "title": "荣获数学竞赛二等奖",
-      "image_path": "http://59.110.237.176:8081/obpm/uploads/class/honor/11e7-a590-dc2168dd-ab6d-c79105787190.jpg"
-    },
-    {
-      "type": 0,
-      "title": "精神文明奖",
-      "image_path": "http://59.110.237.176:8081/obpm/uploads/class/honor/11e7-99e2-fdbe5fd8-8248-e5be1ab60ef5.jpg"
-    },
-    {
-      "type": 1,
-      "title": "运动会一等奖",
-      "image_path": "http://59.110.237.176:8081/obpm/uploads/class/honor/11e7-99e3-1589d5c0-8248-e5be1ab60ef5.jpg"
-    },
-    {
-      "type": 0,
-      "title": "班级荣誉",
-      "image_path": "http://59.110.237.176:8081/obpm/uploads/class/honor/11e7-a584-bfd4f4b7-ab6d-c79105787190.jpg"
-    },
-    {
-      "type": 1,
-      "title": "荣获数学竞赛二等奖",
-      "image_path": "http://59.110.237.176:8081/obpm/uploads/class/honor/11e7-a590-dc2168dd-ab6d-c79105787190.jpg"
+      "column_number": 16,
+      "class_id": "11e7-9f38-0b377c52-befc-cfffeac8f141",
+      "column_name": "校园动态",
+      "column_id": "11e7-7b13-a043c385-a4f3-414f6eee86db",
+      "image_name": null,
+      "image_path": null,
+      "column_type": 1,
+      "url": "http://192.168.3.13:8080/obpm/ClassOtherColumnDisplay?id=11e7-9f38-0b377c52-befc-cfffeac8f141&&columnid=11e7-7b13-a043c385-a4f3-414f6eee86db"
     }
   ]
 }

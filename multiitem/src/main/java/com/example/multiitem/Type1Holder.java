@@ -23,8 +23,8 @@ public class Type1Holder extends RecyclerView.ViewHolder {
         mImageView = itemView.findViewById(R.id.item_iv_square);
         mTextView = itemView.findViewById(R.id.item_tv_square);
     }
-    public void bindHolder(Bean.ItemsBean items) {
+    public void bindHolder(DynamicBean.ItemsBean items) {
         Glide.with(mContext).load(items.getImage_path()).into(mImageView);
-        mTextView.setText(items.getType() + "  " + items.getTitle());
+        mTextView.setText(items.getColumn_type() + "  " + items.getColumn_name());
     }
 }
