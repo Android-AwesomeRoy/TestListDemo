@@ -1,1 +1,1 @@
-include ':multiitem' /*':cardreader', ':killandretart',*/ /*,'threadExample', ':kcb','videodownloadtest', "DownLoader",, ':get_android_id', ':testrandomactivity',*/
+include ':get_android_id', ':upload'/* :cardreader', ':killandretart',*/ /*,'threadExample', ':kcb','videodownloadtest', "DownLoader",, ':get_android_id', ':testrandomactivity',':multiitem'*/

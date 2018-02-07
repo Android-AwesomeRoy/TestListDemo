@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
   private static final String TAG = "zip~doing";
 
-  String url = "http://192.168.3.13:8081/obpm/FaceRecognitionUploadServlet";
+  String url = "http://192.168.3.13:8080/obpm/FaceRecognitionUploadServlet";
   public String sourcePath =
-      Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_DOWNLOADS;
+      Environment.getExternalStorageDirectory() + "/" + Environment.DIRECTORY_PICTURES;
   String destPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-  String zipName = destPath + "/zipfile.zip";
+  String zipName  = destPath + "/zipfile.zip";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
       @Override
       public void onFinish(boolean success) {
-        toast(success ? "true" : "false");
         loadingHide();
 
       }
@@ -69,21 +68,19 @@ public class MainActivity extends AppCompatActivity {
       Toast.makeText(this, "文件不存在", Toast.LENGTH_SHORT).show();
     } else {
       OkHttpClient.Builder builder = new OkHttpClient.Builder()
-          .connectTimeout(300, TimeUnit.SECONDS).readTimeout(300, TimeUnit.SECONDS)
-          .writeTimeout(300, TimeUnit.SECONDS);
+          .connectTimeout(0, TimeUnit.SECONDS).readTimeout(0, TimeUnit.SECONDS)
+          .writeTimeout(0, TimeUnit.SECONDS);
       final OkHttpClient client = builder.build();
 
       RequestBody requestBody = new Builder().setType(MultipartBody.FORM)
-          .addFormDataPart("file", file.getName(),
-              RequestBody.create(MediaType.parse("application/octet-stream"), file)).build();
+//                                             .addFormDataPart("text", "wizool")
+                                             .addFormDataPart("file", file.getName(),
+                                                              RequestBody.create(
+                                                                  MediaType.parse("application/octet-stream"), file))
+                                             .build();
 
       Request request = new Request.Builder().url(url).post(requestBody).build();
 
-      try {
-        Log.d(TAG, "contentLength: " + requestBody.contentLength());
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
       client.newCall(request).enqueue(new Callback() {
         @Override
         public void onFailure(Call call, IOException e) {
@@ -93,8 +90,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onResponse(Call call, Response response) throws IOException {
-          Log.d(TAG, "onResponse: " + response.code());
-          file.delete();
+          String json = response.body().string();
+          Log.d(TAG, "onResponse: " + json);
+          //file.delete();
         }
       });
     }

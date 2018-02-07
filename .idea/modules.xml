@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TestListDemo.iml" filepath="$PROJECT_DIR$/TestListDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/multiitem/multiitem.iml" filepath="$PROJECT_DIR$/multiitem/multiitem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/get_android_id/get_android_id.iml" filepath="$PROJECT_DIR$/get_android_id/get_android_id.iml" />
+      <module fileurl="file://$PROJECT_DIR$/upload/upload.iml" filepath="$PROJECT_DIR$/upload/upload.iml" />
     </modules>
   </component>
 </project>

@@ -8,7 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/multiitem" />
+            <option value="$PROJECT_DIR$/get_android_id" />
+            <option value="$PROJECT_DIR$/upload" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

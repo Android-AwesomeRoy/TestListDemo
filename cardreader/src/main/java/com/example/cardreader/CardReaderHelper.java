@@ -22,8 +22,8 @@ public class CardReaderHelper {
             }
         };
         String text = "";
-        byte mode = 0;
-        byte blk_add = 16;
+        byte mode = 0; // 模式
+        byte blk_add = 16; //
         byte mNum_blk = 1;
         byte[] snr = getByteArray("FF FF FF FF FF FF");
         byte[] buffer = new byte[16 * mNum_blk];
